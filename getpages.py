@@ -11,7 +11,17 @@ from bs4 import BeautifulSoup
 import os
 
 def main():
-	print("okay")
+	with open("./guides.csv", "r") as inFile:
+		with open("./outfile.txt", "w") as outFile:
+			urls = inFile.readlines()
+			reg = re.compile("libguides\.siue\.edu")
+			for url in urls:
+				outFile.write(url)
+				print("Reading: " + url)
+				url_list = getUrls(url[:-1])
+				for item in url_list:
+					if(reg.search(str(item))):
+						outFile.write('\t' + str(item) + '\n')
 
 
 def getUrls(address):
@@ -24,4 +34,4 @@ def getUrls(address):
 		urlsWithin.append(link.get('href'))
 	return urlsWithin
 
-
+main()
