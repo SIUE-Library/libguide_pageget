@@ -10,6 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 
+#Requires: guides.csv (line-seperated list of urls)
 def main():
 	with open("./guides.csv", "r") as inFile:
 		with open("./outfile.txt", "w") as outFile:
