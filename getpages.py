@@ -12,7 +12,7 @@ import os
 
 #Requires: guides.csv (line-seperated list of urls)
 def main():
-	with open("./guides.csv", "r") as inFile:
+	with open("./homes", "r") as inFile:
 		with open("./outfile.txt", "w") as outFile:
 			urls = inFile.readlines()
 			reg = re.compile("libguides\.siue\.edu")
